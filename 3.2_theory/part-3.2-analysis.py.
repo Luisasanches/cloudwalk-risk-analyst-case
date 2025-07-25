@@ -1,19 +1,38 @@
 import pandas as pd
 
-url = 'https://gist.githubusercontent.com/cloudwalk-tests/76993838e65d7e0f988f40f1b1909c97/raw/transactional-sample.csv'
-
+url = "https://gist.githubusercontent.com/cloudwalk-tests/76993838e65d7e0f988f40f1b1909c97/raw/295d9f7cb8fdf08f3cb3bdf1696ab245d5b5c1c9/transactional-sample.csv"
 df = pd.read_csv(url)
 
+print("Dataset preview:")
 print(df.head())
 
-# 1. Carregar o arquivo CSV
-df = pd.read_csv('transactional-sample.csv')
+print("\nDataset summary:")
+print(df.info())
 
-# 2. Calcular o total gasto por cliente
-total_gasto_cliente = df.groupby('customer_id')['amount'].sum().reset_index()
+print("\nNull values per column:")
+print(df.isnull().sum())
 
-# 3. Identificar os 10 clientes que mais gastaram
-top_10_clientes = total_gasto_cliente.sort_values(by='amount', ascending=False).head(10)
+# Number of unique users (customers)
+unique_users = df['user_id'].nunique()
+print(f"\nNumber of unique users: {unique_users}")
 
-# Exibir o resultado
-print(top_10_clientes)
+# Total number of transactions
+total_transactions = df.shape[0]
+print(f"Total number of transactions: {total_transactions}")
+
+# Total transaction amount
+total_amount = df['transaction_amount'].sum()
+print(f"Total transaction amount: ${total_amount:,.2f}")
+
+# Number of chargebacks (has_cbk assumed as boolean or 0/1)
+chargebacks = df[df['has_cbk'] == 1]
+num_chargebacks = chargebacks.shape[0]
+chargeback_amount = chargebacks['transaction_amount'].sum()
+print(f"\nNumber of chargebacks: {num_chargebacks}")
+print(f"Total amount in chargebacks: ${chargeback_amount:,.2f}")
+
+# Transactions over time
+df['transaction_date'] = pd.to_datetime(df['transaction_date'])
+transactions_per_day = df.groupby(df['transaction_date'].dt.date).size()
+print("\nTransactions per day (last 5 days):")
+print(transactions_per_day.tail())
