@@ -1,0 +1,19 @@
+import pandas as pd
+
+url = 'https://gist.githubusercontent.com/cloudwalk-tests/76993838e65d7e0f988f40f1b1909c97/raw/transactional-sample.csv'
+
+df = pd.read_csv(url)
+
+print(df.head())
+
+# 1. Carregar o arquivo CSV
+df = pd.read_csv('transactional-sample.csv')
+
+# 2. Calcular o total gasto por cliente
+total_gasto_cliente = df.groupby('customer_id')['amount'].sum().reset_index()
+
+# 3. Identificar os 10 clientes que mais gastaram
+top_10_clientes = total_gasto_cliente.sort_values(by='amount', ascending=False).head(10)
+
+# Exibir o resultado
+print(top_10_clientes)
