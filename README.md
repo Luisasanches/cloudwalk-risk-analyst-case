@@ -19,6 +19,5 @@ Theoretical explanations about:
 - The money and information flow in the acquiring market
 - Differences between acquirers, sub-acquirers, and gateways
 - What chargebacks are and how they relate to fraud
->>>>>>> 8d0915f (add part 3.2 explanation)
 
 See: [Parte 3.1 - Industry](3.1_theory/part-3.1-industry.md)
