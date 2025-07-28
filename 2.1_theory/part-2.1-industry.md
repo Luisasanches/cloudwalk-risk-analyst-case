@@ -1,4 +1,4 @@
-# Part 3.1 – Understanding the Payment Industry
+# Part 2.1 – Understanding the Payment Industry
 
 ## 1. Money and Information Flow in the Acquiring Market
 
