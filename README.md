@@ -16,7 +16,7 @@ Theoretical explanations about:
 
 In this section, we analyze the chargeback case presented by the client and provide a professional response addressing the situation, explaining the outcome, and suggesting next steps.
 
-- See [Reply.md](./2.2-Case-Analysis/Reply.md)
+- See [Reply.md](2.2 -Case Analysis/Reply.md)
 
 
 
