@@ -48,12 +48,9 @@ Based on the insights above, I designed a strategy combining data-driven rules a
 - Transactions not caught by rules are evaluated using a **Logistic Regression model**, trained to identify high-risk behavior patterns.
 
 This hybrid approach aims to prevent fraud while keeping false positives low. The analysis phase was essential to define thresholds and patterns to be enforced during the transaction flow.
-
-See:  
-- See [part-3.1-analysis.py](./3.1_Analysis/part-3.1-analysis.py)
-- See [part-3.2-antifraud.py](./3.2_Antifraud/part-3.2-antifraud.py)
-
-
+  
+-See [part-3.1-analysis.py](./3.1_Analysis/part-3.1-analysis.py)
+-See [part-3.2-antifraud.py](./3.2_Antifraud/part-3.2-antifraud.py)
 
 
 ## Part 3.3 – Final Conclusions
