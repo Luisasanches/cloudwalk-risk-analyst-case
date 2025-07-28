@@ -49,9 +49,8 @@ Based on the insights above, I designed a strategy combining data-driven rules a
 
 This hybrid approach aims to prevent fraud while keeping false positives low. The analysis phase was essential to define thresholds and patterns to be enforced during the transaction flow.
   
--See [part-3.1-analysis.py](./3.1_Analysis/part-3.1-analysis.py)
--See [part-3.2-antifraud.py](./3.2_Antifraud/part-3.2-antifraud.py)
-
+-See [part-3.1-analysis.py](./3.1_analysis/part-3.1-analysis.py)
+-See [part-3.2-antifraud.py](./3.2_antifraud/part-3.2-antifraud.py)
 
 ## Part 3.3 – Final Conclusions
 
