@@ -16,9 +16,7 @@ Theoretical explanations about:
 
 In this section, we analyze the chargeback case presented by the client and provide a professional response addressing the situation, explaining the outcome, and suggesting next steps.
 
-- See [Reply.md](2.2 -Case Analysis/Reply.md)
-
-
+- See [Reply.md](./2.2_CaseAnalysis/part-2.2-Reply.md)
 
 
 ## Part 3.1 / 3.2 – Analysis and Anti-Fraud Strategy
