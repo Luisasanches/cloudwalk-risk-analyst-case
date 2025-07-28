@@ -1,0 +1,42 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+
+# Load the dataset directly from the provided CSV URL
+url = 'https://gist.githubusercontent.com/cloudwalk-tests/76993838e65d7e0f988f40f1b1909c97/raw/295d9f7cb8fdf08f3cb3bdf1696ab245d5b5c1c9/transactional-sample.csv'
+df = pd.read_csv(url)
+
+# Convert transaction_date to datetime
+df['transaction_date'] = pd.to_datetime(df['transaction_date'])
+
+# Feature Engineering
+df['day_of_week'] = df['transaction_date'].dt.dayofweek
+df['hour'] = df['transaction_date'].dt.hour
+
+# Encode card_number and device_id
+df['card_number'] = df['card_number'].astype('category').cat.codes
+df['device_id'] = df['device_id'].astype('category').cat.codes
+df['user_id'] = df['user_id'].astype('category').cat.codes
+df['merchant_id'] = df['merchant_id'].astype('category').cat.codes
+
+# Features and target
+features = ['merchant_id', 'user_id', 'card_number', 'transaction_amount', 'device_id', 'day_of_week', 'hour']
+X = df[features]
+y = df['has_cbk']
+
+# Train/test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train model
+model = RandomForestClassifier(random_state=42)
+model.fit(X_train, y_train)
+
+# Predict
+y_pred = model.predict(X_test)
+
+# Evaluate
+print("Confusion Matrix:")
+print(confusion_matrix(y_test, y_pred))
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred))
